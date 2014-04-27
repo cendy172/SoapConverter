@@ -8,13 +8,13 @@ repositories {
     mavenCentral()
 }
 
+jar {
+    baseName = 'com.liqing.domain'
+    version = '0.1.0-SNAPSHOT'
+}
+
 dependencies {
     compile(
-            project(':Domain'),
-            project(':Service')
-    )
-
-    testCompile(
             'junit:junit:4.11'
     )
 }
