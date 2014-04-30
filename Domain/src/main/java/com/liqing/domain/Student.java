@@ -1,27 +1,19 @@
 package com.liqing.domain;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-
-@XmlRootElement
 public class Student
 {
-	@XmlAttribute
-	private int id;
+	private String id;
 
-	@XmlElement
 	private String name;
 
-    @XmlElement
-	private int age;
+	private String age;
 
-	public int getId()
+	public String getId()
 	{
 		return id;
 	}
 
-	public void setId(int id)
+	public void setId(String id)
 	{
 		this.id = id;
 	}
@@ -36,12 +28,12 @@ public class Student
 		this.name = name;
 	}
 
-	public int getAge()
+	public String getAge()
 	{
 		return age;
 	}
 
-	public void setAge(int age)
+	public void setAge(String age)
 	{
 		this.age = age;
 	}
