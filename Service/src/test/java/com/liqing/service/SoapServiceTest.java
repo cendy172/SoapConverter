@@ -1,6 +1,6 @@
 package com.liqing.service;
 
-import com.liqing.domain.Student;
+import com.liqing.domain.StudentsListResponse;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,9 +18,13 @@ public class SoapServiceTest {
 
     @Test
     public void shouldCreateStudentInstance() {
-        Student student = soapService.createStudent();
+        StudentsListResponse student = soapService.createStudent();
 
-        assertThat(student.getId(), is(1));
+        assertThat(student.getResponseHeader().getResponseCreatedTime(), is(""));
+        assertThat(student.getResponseHeader().getOperationStatus(), is("SUCCESS"));
+        assertThat(student.getStudents().size(), is(2));
+        assertThat(student.getStudents().get(0).getName(), is("john"));
+        assertThat(student.getStudents().get(0).getAge(), is("12"));
 
     }
 }
