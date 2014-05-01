@@ -23,9 +23,9 @@ public class SoapServiceTest {
         assertThat(student.getResponseHeader().getResponseCreatedTime(), is(""));
         assertThat(student.getResponseHeader().getOperationStatus(), is("SUCCESS"));
         assertThat(student.getStudents().size(), is(2));
-        assertThat(student.getStudents().get(0).getId(), is("1"));
+        assertThat(student.getStudents().get(0).getId(), is(1));
         assertThat(student.getStudents().get(0).getName(), is("john"));
-        assertThat(student.getStudents().get(0).getAge(), is("12"));
+        assertThat(student.getStudents().get(0).getAge(), is(12));
 
     }
 }

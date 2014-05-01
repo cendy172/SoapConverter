@@ -8,18 +8,18 @@ import javax.xml.bind.annotation.XmlAttribute;
 public class Student
 {
 	@XmlAttribute
-	private String id;
+	private int id;
 
 	private String name;
 
-	private String age;
+	private int age;
 
-	public String getId()
+	public int getId()
 	{
 		return id;
 	}
 
-	public void setId(String id)
+	public void setId(int id)
 	{
 		this.id = id;
 	}
@@ -34,12 +34,12 @@ public class Student
 		this.name = name;
 	}
 
-	public String getAge()
+	public int getAge()
 	{
 		return age;
 	}
 
-	public void setAge(String age)
+	public void setAge(int age)
 	{
 		this.age = age;
 	}
