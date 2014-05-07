@@ -23,7 +23,7 @@ public class SoapServiceTest
 	{
 		StudentsListResponse student = soapService.createStudent();
 
-		assertThat(student.getResponseHeader().getResponseCreatedTime(), is(""));
+		assertThat(student.getResponseHeader().getResponseCreatedTime(), is("1/5/2014"));
 		assertThat(student.getResponseHeader().getOperationStatus(), is("SUCCESS"));
 		assertThat(student.getStudents().size(), is(2));
 		assertThat(student.getStudents().get(0).getId(), is(1));
