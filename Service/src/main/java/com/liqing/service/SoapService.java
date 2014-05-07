@@ -3,7 +3,9 @@ package com.liqing.service;
 import com.liqing.domain.StudentsListResponse;
 import com.liqing.service.soap.RequestBuilder;
 import com.liqing.service.soap.ServiceResponseReader;
+import org.apache.commons.io.IOUtils;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 
@@ -12,20 +14,16 @@ public class SoapService
 
 	public StudentsListResponse createStudent()
 	{
-
 		final InputStream resourceAsStream = this.getClass().getClassLoader().getResourceAsStream("students.xml");
+		try
+		{
+			final String students = IOUtils.toString(resourceAsStream, "UTF-8");
+			return new ServiceResponseReader().getResult(students, StudentsListResponse.class);
+		} catch (IOException e)
+		{
+			throw new RuntimeException(e);
+		}
 
-		String xml = "<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\">"
-				+ "    <SOAP-ENV:Body>" + "        <listStudentsResp xmlns=\"urn:liqing:schema:com:student\">"
-				+ "            <responseHeader>" + "                <responseCreatedTime>1/5/2014</responseCreatedTime>"
-				+ "                <operationStatus>SUCCESS</operationStatus>" + "            </responseHeader>"
-				+ "            <students>" + "                <student id=\"1\">"
-				+ "                    <name>john</name>" + "                    <age>12</age>"
-				+ "                </student>" + "                <student id=\"2\">"
-				+ "                    <name>smith</name>" + "                    <age>13</age>"
-				+ "                </student>" + "            </students>" + "        </listStudentsResp>"
-				+ "    </SOAP-ENV:Body>" + "</SOAP-ENV:Envelope>";
-		return new ServiceResponseReader().getResult(xml, StudentsListResponse.class);
 	}
 
 	public String getStudentsXml()

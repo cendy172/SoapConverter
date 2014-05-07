@@ -1,0 +1,20 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Body>
+        <listStudentsResp xmlns="urn:liqing:schema:com:student">
+            <responseHeader>
+                <responseCreatedTime>1/5/2014</responseCreatedTime>
+                <operationStatus>SUCCESS</operationStatus>
+            </responseHeader>
+            <students>
+                <student id="1">
+                    <name>john</name>
+                    <age>12</age>
+                </student>
+                <student id="2">
+                    <name>smith</name>
+                    <age>13</age>
+                </student>
+            </students>
+        </listStudentsResp>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
