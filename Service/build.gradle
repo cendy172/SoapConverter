@@ -19,9 +19,10 @@ dependencies {
     compile(
             'commons-io:commons-io:2.4',
             'org.apache.commons:commons-lang3:3.3.2',
-            'com.github.dreamhead:moco-core:0.9',
-            'com.github.dreamhead:moco-runner:0.9',
+            'com.github.dreamhead:moco-core:0.9.1',
+            'com.github.dreamhead:moco-runner:0.9.1',
             'com.garrettheel:moco-maven-plugin:0.9',
+            'org.freemarker:freemarker:2.3.20',
             'junit:junit:4.11'
     )
 }

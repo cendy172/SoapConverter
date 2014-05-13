@@ -1,6 +1,8 @@
 package com.liqing.service;
 
 import com.liqing.domain.StudentsListResponse;
+import com.liqing.service.moco.MocoEndPointService;
+import com.liqing.service.soap.RequestBuilder;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,13 +17,13 @@ public class SoapServiceTest
 	@Before
 	public void setUp()
 	{
-		soapService = new SoapService();
+		soapService = new SoapService(new MocoEndPointService(), new RequestBuilder());
 	}
 
 	@Test
 	public void shouldCreateStudentInstance()
 	{
-		StudentsListResponse student = soapService.createStudent();
+		StudentsListResponse student = soapService.getStudents();
 
 		assertThat(student.getResponseHeader().getResponseCreatedTime(), is("1/5/2014"));
 		assertThat(student.getResponseHeader().getOperationStatus(), is("SUCCESS"));
